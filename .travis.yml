@@ -7,10 +7,7 @@ branches:
   only:
     - development
 
-language: node_js
-node_js:
-  - "iojs"
-  - "7"
+script: docker-compose -p "dev" build
 
 deploy:
   provider: heroku
