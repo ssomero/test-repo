@@ -1,0 +1,54 @@
+version: "2"
+
+services:
+  frontend:
+    build: frontend
+    ports:
+      - 8000:8000
+    volumes:
+      - ./frontend:/usr/src/app
+      - ./results:/results
+      - ./frontend_nginx/dist:/usr/src/app/dist
+      - frontend_modules:/usr/src/app/node_modules
+    command: npm start
+    environment:
+      - ENDPOINT=http://localhost:9000/api/v1
+      - PORT=8000
+    depends_on:
+      - backend
+
+  backend:
+    build: backend
+    ports:
+      - 9000:9000
+      - 9229:9229
+    volumes:
+      - ./backend:/usr/src/app
+      - backend_modules:/usr/src/app/node_modules
+    command: ["./wait_for_db.sh","db", "5432", "npm", "run", "listen"]
+    environment:
+      - PORT=9000
+      - SHARED_SECRET=secret
+      - NODE_ENV=development
+      - XDATABASE_URL=postgres://dev_db_user:dev_db_password@db/dev_db
+      - DATABASE_URL=postgres://dev_user:devUs3r@db/dev_db
+      - API_POSTFIX=/api/v1
+    depends_on:
+      - db
+
+  db:
+    build: postgres
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=dev_user
+      - POSTGRES_PASSWORD=devUs3r
+      - POSTGRES_DB=dev_db
+    ports:
+      - 5432:5432
+
+volumes:
+  dbdata:
+  dbdump:
+  backend_modules:
+  frontend_modules:
