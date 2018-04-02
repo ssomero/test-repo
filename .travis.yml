@@ -7,10 +7,10 @@ branches:
 script: docker-compose -p "dev" build
 deploy:
   provider: heroku
-  script: 
-    - docker login --username=_ --password="$HEROKU_TOKEN" registry.heroku.com
-    - docker build -t registry.heroku.com/${YOUR_APP_NAME}/web .
-    - docker push registry.heroku.com/${YOUR_APP_NAME}/web
+  script:
+  - docker login --username=_ --password="$HEROKU_TOKEN" registry.heroku.com
+  - docker build -t registry.heroku.com/${YOUR_APP_NAME}/web .
+  - docker push registry.heroku.com/${YOUR_APP_NAME}/web
   api_key:
-    secure: MvidGX5qfNG0ZHhd1wwubkMrCziQza7/LVgAsyBpxYGhwXSTIihYUb2W4ccUOZbBEcqMoM/wAbUnma5JLgxhKy7jUSEqO1up+nlBQ0Sta95GOtiXM+eNI5SASVD2YRUW7TAVXABdA2Hwx6gMQjsHq+tBQB3Bsfup+IACK2m9/pGkwph4MdvUyQdNJDPJeY1ls4GbwHdFMOJ9fXiIahzuFaVJeM0OEJZ8gtTAszf4RAqUzymvNukhyAR9LECFkeSVYiL8s0PJTbBPt3eQ3EupZvcvFv2QyPGuJLdnizFlBKLKlNTJoSMsIJ7GtugFZ8WFh+9NbrdVkt3Ven6TvUquoUH923Dby4G4kOoZt4O6A0wbUyOdXOrYTyoIEPqWOACN33/NAnXbEgpWaCd9/k5n/CjzRQarFsiTv7vCs1FhJovc9pzNguKWguCgysfSYftDaiWAKLfr0Hl1E4DomUZrCDjZ7DDL7Gq0phwG7DH/ibJvchir3MjyKay+GRP6FYg3GO6awkrQ61JgQZTTG+t0Z89dt51FJMVh+R1yOlBIYPVezLVqmp7wTwvYFCTcJwu7VtvgYnKUfWfduQUO/TXGz4jawlBoqQmYZNCYLLi0pAE153bpR8Kg2VdJ+L/6nNRTqVmT1QFRtd2NwfUSA5ZR4OJQhlTVHoZN3Zu7Ur5AMI8=
+    secure: cETseLwxuDf15dheNVPOqmMgFTaMqbZxaVlH1zKw/Perth2r66htf73WYcAFeOWMEMlfvgHB2kQoRAROWAXKpKnAJkvoecJGNlsPWa+iVtKzgmwKdodhim21fYH89ekUeI+WBn79G7zmJTUvVt5eSMkd+pMWX7P4VDRFObCw0ctIEWi4gT0Snyx8KgLF4yFtzFkyf3oMeoG/2jdsxX7ZbEteBrBrHX4/ZVSJ4jplgSk9YBPzbY5QfYd8WZ3TXCZ3uyf3Mb5PSDtfdPtKu+o9c9w6w10CGvmirS221hc4N51zVJdlWwg31VsCguxdPluVdlWJxV882XoomL6X4NO3qk5vDVa9RzasCMTsaaz+O+g7+KWvEFlyGlYkP3UQrFGQRHqVxKu4FfJUBizD8gzrhAhwJNTtWFmkbTjg0Th29a55DC89KKbW80mng1TzJHFAcye+T9OmbxC1KaLpQNQy3HxLpnMDAUNsyFGdT1AuEYP2uvdkhXjRf+/InkldAX+BFohRLVQjqOvGT86P2aKdh5/cJrzb0xZXpM3hM04mL7Sg+6XxOMvM/aqpZwlmVFM7DCUVqKmMLa1dGS4og7jJ+Tbq0YntYWXOAW7J/FgLzaLmIkk6MJygKaOm4D8JXKsAvnt7ViOJFUAiQBW1xNAFbtD0vK3SMd8NdcKfgOghFEU=
   on: development
