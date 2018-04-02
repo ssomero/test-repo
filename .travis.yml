@@ -9,15 +9,13 @@ deploy:
   provider: heroku
   script:
   - echo "login to heroku registry"
-  - docker login --username=_ --password="$HEROKU_TOKEN" registry.heroku.com
-  - echo "docker build"
-  - docker build -t registry.heroku.com/glacial-springs-10933/web .
-  - echo "push 1"
-  - docker push registry.heroku.com/glacial-springs-10933/frontend
+  - echo "login to heroku registry" && docker login --username=_ --password="$HEROKU_TOKEN" registry.heroku.com
+  - echo "docker build" && docker build -t registry.heroku.com/glacial-springs-10933/web .
+  - echo "push 1" && docker push registry.heroku.com/glacial-springs-10933/dev_frontend
   - echo "push 2"
-  - docker push registry.heroku.com/glacial-springs-10933/backend
+  - docker push registry.heroku.com/glacial-springs-10933/dev_backend
   - echo "push 3"
-  - docker push registry.heroku.com/glacial-springs-10933/db
+  - docker push registry.heroku.com/glacial-springs-10933/dev_db
   api_key:
     secure: cETseLwxuDf15dheNVPOqmMgFTaMqbZxaVlH1zKw/Perth2r66htf73WYcAFeOWMEMlfvgHB2kQoRAROWAXKpKnAJkvoecJGNlsPWa+iVtKzgmwKdodhim21fYH89ekUeI+WBn79G7zmJTUvVt5eSMkd+pMWX7P4VDRFObCw0ctIEWi4gT0Snyx8KgLF4yFtzFkyf3oMeoG/2jdsxX7ZbEteBrBrHX4/ZVSJ4jplgSk9YBPzbY5QfYd8WZ3TXCZ3uyf3Mb5PSDtfdPtKu+o9c9w6w10CGvmirS221hc4N51zVJdlWwg31VsCguxdPluVdlWJxV882XoomL6X4NO3qk5vDVa9RzasCMTsaaz+O+g7+KWvEFlyGlYkP3UQrFGQRHqVxKu4FfJUBizD8gzrhAhwJNTtWFmkbTjg0Th29a55DC89KKbW80mng1TzJHFAcye+T9OmbxC1KaLpQNQy3HxLpnMDAUNsyFGdT1AuEYP2uvdkhXjRf+/InkldAX+BFohRLVQjqOvGT86P2aKdh5/cJrzb0xZXpM3hM04mL7Sg+6XxOMvM/aqpZwlmVFM7DCUVqKmMLa1dGS4og7jJ+Tbq0YntYWXOAW7J/FgLzaLmIkk6MJygKaOm4D8JXKsAvnt7ViOJFUAiQBW1xNAFbtD0vK3SMd8NdcKfgOghFEU=
   on: development
