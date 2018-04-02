@@ -1,16 +1,16 @@
 sudo: required
-
 services:
-  - docker
-
+- docker
 branches:
   only:
-    - development
-
+  - development
 script: docker-compose -p "dev" build
-
 deploy:
   provider: heroku
+  script: 
+    - docker login --username=_ --password="$HEROKU_TOKEN" registry.heroku.com
+    - docker build -t registry.heroku.com/${YOUR_APP_NAME}/web .
+    - docker push registry.heroku.com/${YOUR_APP_NAME}/web
   api_key:
-    secure: 
+    secure: MvidGX5qfNG0ZHhd1wwubkMrCziQza7/LVgAsyBpxYGhwXSTIihYUb2W4ccUOZbBEcqMoM/wAbUnma5JLgxhKy7jUSEqO1up+nlBQ0Sta95GOtiXM+eNI5SASVD2YRUW7TAVXABdA2Hwx6gMQjsHq+tBQB3Bsfup+IACK2m9/pGkwph4MdvUyQdNJDPJeY1ls4GbwHdFMOJ9fXiIahzuFaVJeM0OEJZ8gtTAszf4RAqUzymvNukhyAR9LECFkeSVYiL8s0PJTbBPt3eQ3EupZvcvFv2QyPGuJLdnizFlBKLKlNTJoSMsIJ7GtugFZ8WFh+9NbrdVkt3Ven6TvUquoUH923Dby4G4kOoZt4O6A0wbUyOdXOrYTyoIEPqWOACN33/NAnXbEgpWaCd9/k5n/CjzRQarFsiTv7vCs1FhJovc9pzNguKWguCgysfSYftDaiWAKLfr0Hl1E4DomUZrCDjZ7DDL7Gq0phwG7DH/ibJvchir3MjyKay+GRP6FYg3GO6awkrQ61JgQZTTG+t0Z89dt51FJMVh+R1yOlBIYPVezLVqmp7wTwvYFCTcJwu7VtvgYnKUfWfduQUO/TXGz4jawlBoqQmYZNCYLLi0pAE153bpR8Kg2VdJ+L/6nNRTqVmT1QFRtd2NwfUSA5ZR4OJQhlTVHoZN3Zu7Ur5AMI8=
   on: development
