@@ -1,4 +1,8 @@
-"scripts": {
+{
+	"name": "app",
+	"version": "1.0.0",
+	"scripts": {
 	"start:web": "cd frontend && npm install && webpack-dev-server",
 	"start:api": "cd backend && npm install && node ./src/index.js"
+}
 }
