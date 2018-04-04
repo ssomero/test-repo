@@ -12,6 +12,7 @@
       "jest/globals": true
     },
     "rules": {
+      "no-trailing-spaces": "error"
     }
   }
   
