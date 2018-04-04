@@ -6,18 +6,23 @@ branches:
   only:
   - development
 script: docker-compose -p "dev" build
+before_deploy:
+- echo "login to heroku registry"
+- docker login --username=_ --password="$HEROKU_TOKEN" registry.heroku.com
+- docker tag dev_backend registry.heroku.com/stormy-thicket-71480/dev_backend
+- docker tag dev_db registry.heroku.com/stormy-thicket-71480/dev_db
+- docker tag dev_frontend registry.heroku.com/stormy-thicket-71480/dev_frontend
 deploy:
   provider: heroku
   script:
-  - echo "login to heroku registry"
-  - echo "login to heroku registry" && docker login --username=_ --password="$HEROKU_TOKEN" registry.heroku.com
-  - echo "docker build" && docker build -t registry.heroku.com/glacial-springs-10933/web .
-  - echo "push 1" && docker push registry.heroku.com/glacial-springs-10933/dev_frontend
+  #- docker build -t registry.heroku.com/stormy-thicket-71480/web .
+  - echo "push 1"
+  - docker push registry.heroku.com/stormy-thicket-71480/dev_frontend
   - echo "push 2"
-  - docker push registry.heroku.com/glacial-springs-10933/dev_backend
+  - docker push registry.heroku.com/stormy-thicket-71480/dev_backend
   - echo "push 3"
-  - docker push registry.heroku.com/glacial-springs-10933/dev_db
+  - docker push registry.heroku.com/stormy-thicket-71480/dev_db
   api_key:
-    secure: cETseLwxuDf15dheNVPOqmMgFTaMqbZxaVlH1zKw/Perth2r66htf73WYcAFeOWMEMlfvgHB2kQoRAROWAXKpKnAJkvoecJGNlsPWa+iVtKzgmwKdodhim21fYH89ekUeI+WBn79G7zmJTUvVt5eSMkd+pMWX7P4VDRFObCw0ctIEWi4gT0Snyx8KgLF4yFtzFkyf3oMeoG/2jdsxX7ZbEteBrBrHX4/ZVSJ4jplgSk9YBPzbY5QfYd8WZ3TXCZ3uyf3Mb5PSDtfdPtKu+o9c9w6w10CGvmirS221hc4N51zVJdlWwg31VsCguxdPluVdlWJxV882XoomL6X4NO3qk5vDVa9RzasCMTsaaz+O+g7+KWvEFlyGlYkP3UQrFGQRHqVxKu4FfJUBizD8gzrhAhwJNTtWFmkbTjg0Th29a55DC89KKbW80mng1TzJHFAcye+T9OmbxC1KaLpQNQy3HxLpnMDAUNsyFGdT1AuEYP2uvdkhXjRf+/InkldAX+BFohRLVQjqOvGT86P2aKdh5/cJrzb0xZXpM3hM04mL7Sg+6XxOMvM/aqpZwlmVFM7DCUVqKmMLa1dGS4og7jJ+Tbq0YntYWXOAW7J/FgLzaLmIkk6MJygKaOm4D8JXKsAvnt7ViOJFUAiQBW1xNAFbtD0vK3SMd8NdcKfgOghFEU=
+    secure: HEmg42HkKwYtvy29O16ksZ085P1W/WtTM/2ZdheSKE+nVwrbwdB29rV3uFZXETM5H9+tjX0AwOay+A/g/yquA+BOFD8GOsrlusjITGfzHl1GFyGk90m9fcjo7dkSNSY8XDBEZANnRbI+o97LwGbLuwFx16wI37/F0BjPGLqIfKpK5knI0gGULazHayrd8I3mOd4XCcwDyq+5NO1sX3U1K6BxTHYY1mF3oT+AlI9/+8xiKsJn8Y11S5XSGAO5W/bsd+OCHcewpe4JK81rT4+QrxRMfoU69BTmCjY46sa1Eosag2nI+VC06PNOA1WLFsVfYH0YN5M16fuymDMWrjSeV1dYehWJIq4d+P/JQaxcWzzKsO7IyGB6qc96fACFcpmEiB0CMnK/07o1/PYXUCgPERRxgabY385amjZEBvk8FGmLbFCilu6W307MdqvnXvditHyON2MJgLHcvFow2jYqCj+Ag81yJyOs/3mmNquCghj/VfDFq7YohUhSoV2PWY4fFX9F9DhvZdzEfxjJapzEIEh9aLeVv1Td7vPMidC6yDkb+iIMZyvsE8FsTQX4STo8+wIGi2GzQDIjf37l69YYwYbtFKc5BEwNjZEFoCRSOUB/gSU9y3hOAxSZb4iNCtHZBumJbxiAkLDeSe5PuZikSt2AYtg4W2iPUQC9VJyrtdE=
   on: development
-  app: glacial-springs-10933
+  app: stormy-thicket-71480

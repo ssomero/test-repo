@@ -1,13 +1,24 @@
 FROM node:8.9.4-alpine
 
+#RUN apk add --no-cache shadow
+
+RUN apk add --no-cache bash postgresql-client zip 
+
+RUN adduser -D docker_backend
+
 RUN mkdir -p /usr/src/app
+RUN chown docker_backend /usr/src/app 
+USER docker_backend 
 WORKDIR /usr/src/app
 
 COPY package.json /usr/src/app
 RUN npm install
 
-RUN apk add --no-cache bash postgresql-client zip
-
 COPY . /usr/src/app
-RUN chmod a+x ./wait_for_db.sh
+#RUN chmod a+x ./wait_for_db.sh
 
+#RUN addgroup -S docker_backend \
+ #   && adduser -S docker_backend -G docker_backend
+
+#USER docker_backend 
+  
