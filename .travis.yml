@@ -13,6 +13,7 @@ before_deploy:
 - docker tag dev_db registry.heroku.com/stormy-thicket-71480/dev_db
 - docker tag dev_frontend registry.heroku.com/stormy-thicket-71480/dev_frontend
 deploy:
+  skip_cleanup: true
   provider: heroku
   script:
   #- docker build -t registry.heroku.com/stormy-thicket-71480/web .
