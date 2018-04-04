@@ -5,7 +5,11 @@ services:
 branches:
   only:
   - development
-script: docker-compose -p "dev" build
+script: 
+  - docker-compose -p "dev" build backend
+  - docker-compose -p "dev" build frontend
+  - docker-compose -p "dev" build db
+  
 before_deploy:
 - echo "login to heroku registry"
 - docker login --username=_ --password="$HEROKU_TOKEN" registry.heroku.com
