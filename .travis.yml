@@ -5,11 +5,10 @@ services:
 branches:
   only:
   - development
-script: 
-  - docker-compose -p "dev" build backend
-  - docker-compose -p "dev" build frontend
-  - docker-compose -p "dev" build db
-  
+script:
+- docker-compose -p "dev" build backend
+- docker-compose -p "dev" build frontend
+- docker-compose -p "dev" build db
 before_deploy:
 - echo docker --version
 - echo docker-compose --version
@@ -22,14 +21,14 @@ deploy:
   skip_cleanup: true
   provider: heroku
   script:
-  #- docker build -t registry.heroku.com/stormy-thicket-71480/web .
+  #- docker build -t registry.heroku.com/stormy-thicket-71480/dev_frontend/web
   - echo "push 1"
-  - docker push registry.heroku.com/stormy-thicket-71480/dev_frontend/web
+  - docker push registry.heroku.com/stormy-thicket-71480/dev_frontend
   - echo "push 2"
-  - docker push registry.heroku.com/stormy-thicket-71480/dev_backend/web
+  - docker push registry.heroku.com/stormy-thicket-71480/dev_backend
   - echo "push 3"
-  - docker push registry.heroku.com/stormy-thicket-71480/dev_db/web
+  - docker push registry.heroku.com/stormy-thicket-71480/dev_db
   api_key:
-    secure: HEmg42HkKwYtvy29O16ksZ085P1W/WtTM/2ZdheSKE+nVwrbwdB29rV3uFZXETM5H9+tjX0AwOay+A/g/yquA+BOFD8GOsrlusjITGfzHl1GFyGk90m9fcjo7dkSNSY8XDBEZANnRbI+o97LwGbLuwFx16wI37/F0BjPGLqIfKpK5knI0gGULazHayrd8I3mOd4XCcwDyq+5NO1sX3U1K6BxTHYY1mF3oT+AlI9/+8xiKsJn8Y11S5XSGAO5W/bsd+OCHcewpe4JK81rT4+QrxRMfoU69BTmCjY46sa1Eosag2nI+VC06PNOA1WLFsVfYH0YN5M16fuymDMWrjSeV1dYehWJIq4d+P/JQaxcWzzKsO7IyGB6qc96fACFcpmEiB0CMnK/07o1/PYXUCgPERRxgabY385amjZEBvk8FGmLbFCilu6W307MdqvnXvditHyON2MJgLHcvFow2jYqCj+Ag81yJyOs/3mmNquCghj/VfDFq7YohUhSoV2PWY4fFX9F9DhvZdzEfxjJapzEIEh9aLeVv1Td7vPMidC6yDkb+iIMZyvsE8FsTQX4STo8+wIGi2GzQDIjf37l69YYwYbtFKc5BEwNjZEFoCRSOUB/gSU9y3hOAxSZb4iNCtHZBumJbxiAkLDeSe5PuZikSt2AYtg4W2iPUQC9VJyrtdE=
+    secure: KgShgXTcysd6J2nukHTYJL7hwaOpRT+NbujlJdtOriI6uVdbopt9Jc7AFe47pJpyAbi/c9ig1aHPMwk337RHJnPYe4MWHQuA18ujPXGurTlTUPy3hdfpzA+jknqE/lM6pg5JhRf5tNgWW+wMU+HHf/upRGJMw+oNmgW07uATMFUhDm6stp2QeIfwWhL59yosBfvodrqHmWZr6onaaKf5Ip1IwM7Ir9LMHvbxcsZwwHt/riJwVaFbhssGODY57FL/jV4Dcpac+ZlXY066A+Yeio381VnZtVlufxkQwOVM+CtW5Tah3ndGW/Wc9UA4D9TjyT1CLgu7s7C1SKL9Asw/MEC83bBqyjz0vSuOlCd+cgcAww7Sv8oKg1kWgwGTHNfNR1/qjXyTcqi+6vpeEZZ4++A6ietVAAhnB/RGX5QAXu4DU5DPnGNeU3ME4LaNp5UOUHMTLO1svJSfwGpcu8FcIvYiNz4E0fahPJDExcMUMM3BXx3jSpOFMg5qq2Ia7lUkUsbh52vtx7+FodEBIwidAZPGkV30NhtINdLL1N/EiFqhp4+3CJEgcJPBt4RhXDN0MefvRGlTc9qAv4DWNlyTZEW4MdoID2HoftXQHj5S+NRgtYOEEU3LyLBiSOVGeIDxkHE3MHCjjmiagrSgokTpPDD9XZxZ2H2AKeX9JlmXLJQ=
   on: development
   app: stormy-thicket-71480
