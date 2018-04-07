@@ -14,21 +14,21 @@ before_deploy:
 - echo docker-compose --version
 - echo "login to heroku registry"
 - docker login --username=_ --password="$HEROKU_TOKEN" registry.heroku.com
-- docker tag dev_backend registry.heroku.com/stormy-thicket-71480/dev_backend
-- docker tag dev_db registry.heroku.com/stormy-thicket-71480/dev_db
-- docker tag dev_frontend registry.heroku.com/stormy-thicket-71480/dev_frontend
+- docker tag dev_backend registry.heroku.com/safe-taiga-45870/dev_backend
+- docker tag dev_db registry.heroku.com/safe-taiga-45870/dev_db
+- docker tag dev_frontend registry.heroku.com/safe-taiga-45870/dev_frontend
 deploy:
   skip_cleanup: true
   provider: heroku
   script:
-  #- docker build -t registry.heroku.com/stormy-thicket-71480/dev_frontend/web
+  #- docker build -t registry.heroku.com/safe-taiga-45870/dev_frontend/web
   - echo "push 1"
-  - docker push registry.heroku.com/stormy-thicket-71480/dev_frontend
+  - docker push registry.heroku.com/safe-taiga-45870/dev_frontend
   - echo "push 2"
-  - docker push registry.heroku.com/stormy-thicket-71480/dev_backend
+  - docker push registry.heroku.com/safe-taiga-45870/dev_backend
   - echo "push 3"
-  - docker push registry.heroku.com/stormy-thicket-71480/dev_db
+  - docker push registry.heroku.com/safe-taiga-45870/dev_db
   api_key:
     secure: KgShgXTcysd6J2nukHTYJL7hwaOpRT+NbujlJdtOriI6uVdbopt9Jc7AFe47pJpyAbi/c9ig1aHPMwk337RHJnPYe4MWHQuA18ujPXGurTlTUPy3hdfpzA+jknqE/lM6pg5JhRf5tNgWW+wMU+HHf/upRGJMw+oNmgW07uATMFUhDm6stp2QeIfwWhL59yosBfvodrqHmWZr6onaaKf5Ip1IwM7Ir9LMHvbxcsZwwHt/riJwVaFbhssGODY57FL/jV4Dcpac+ZlXY066A+Yeio381VnZtVlufxkQwOVM+CtW5Tah3ndGW/Wc9UA4D9TjyT1CLgu7s7C1SKL9Asw/MEC83bBqyjz0vSuOlCd+cgcAww7Sv8oKg1kWgwGTHNfNR1/qjXyTcqi+6vpeEZZ4++A6ietVAAhnB/RGX5QAXu4DU5DPnGNeU3ME4LaNp5UOUHMTLO1svJSfwGpcu8FcIvYiNz4E0fahPJDExcMUMM3BXx3jSpOFMg5qq2Ia7lUkUsbh52vtx7+FodEBIwidAZPGkV30NhtINdLL1N/EiFqhp4+3CJEgcJPBt4RhXDN0MefvRGlTc9qAv4DWNlyTZEW4MdoID2HoftXQHj5S+NRgtYOEEU3LyLBiSOVGeIDxkHE3MHCjjmiagrSgokTpPDD9XZxZ2H2AKeX9JlmXLJQ=
   on: development
-  app: stormy-thicket-71480
+  app: safe-taiga-45870
