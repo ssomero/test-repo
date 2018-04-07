@@ -14,21 +14,20 @@ before_deploy:
 - echo docker-compose --version
 - echo "login to heroku registry"
 - docker login --username=_ --password="$HEROKU_TOKEN" registry.heroku.com
-- docker tag dev_backend registry.heroku.com/safe-taiga-45870/dev_backend
-- docker tag dev_db registry.heroku.com/safe-taiga-45870/dev_db
-- docker tag dev_frontend registry.heroku.com/safe-taiga-45870/dev_frontend
+- docker tag dev_backend registry.heroku.com/agile-escarpment-17536/dev_backend
+- docker tag dev_db registry.heroku.com/agile-escarpment-17536/dev_db
+- docker tag dev_frontend registry.heroku.com/agile-escarpment-17536/dev_frontend
 deploy:
   skip_cleanup: true
   provider: heroku
   script:
-  #- docker build -t registry.heroku.com/safe-taiga-45870/dev_frontend/web
   - echo "push 1"
-  - docker push registry.heroku.com/safe-taiga-45870/dev_frontend
+  - docker push registry.heroku.com/agile-escarpment-17536/dev_frontend
   - echo "push 2"
-  - docker push registry.heroku.com/safe-taiga-45870/dev_backend
+  - docker push registry.heroku.com/agile-escarpment-17536/dev_backend
   - echo "push 3"
-  - docker push registry.heroku.com/safe-taiga-45870/dev_db
+  - docker push registry.heroku.com/agile-escarpment-17536/dev_db
   api_key:
-    secure: KgShgXTcysd6J2nukHTYJL7hwaOpRT+NbujlJdtOriI6uVdbopt9Jc7AFe47pJpyAbi/c9ig1aHPMwk337RHJnPYe4MWHQuA18ujPXGurTlTUPy3hdfpzA+jknqE/lM6pg5JhRf5tNgWW+wMU+HHf/upRGJMw+oNmgW07uATMFUhDm6stp2QeIfwWhL59yosBfvodrqHmWZr6onaaKf5Ip1IwM7Ir9LMHvbxcsZwwHt/riJwVaFbhssGODY57FL/jV4Dcpac+ZlXY066A+Yeio381VnZtVlufxkQwOVM+CtW5Tah3ndGW/Wc9UA4D9TjyT1CLgu7s7C1SKL9Asw/MEC83bBqyjz0vSuOlCd+cgcAww7Sv8oKg1kWgwGTHNfNR1/qjXyTcqi+6vpeEZZ4++A6ietVAAhnB/RGX5QAXu4DU5DPnGNeU3ME4LaNp5UOUHMTLO1svJSfwGpcu8FcIvYiNz4E0fahPJDExcMUMM3BXx3jSpOFMg5qq2Ia7lUkUsbh52vtx7+FodEBIwidAZPGkV30NhtINdLL1N/EiFqhp4+3CJEgcJPBt4RhXDN0MefvRGlTc9qAv4DWNlyTZEW4MdoID2HoftXQHj5S+NRgtYOEEU3LyLBiSOVGeIDxkHE3MHCjjmiagrSgokTpPDD9XZxZ2H2AKeX9JlmXLJQ=
+    secure: bLKRCa+6+rEFvpXSvKArCc5CB/dVxIpRFBcXb3mgVzYsiLT0cK+GYS6VUDmVDLCIXMsTQjOW0RjwDHW/AygtxHTcCzgFIS1fwvi2uzBMs6Sub07ZSQpM+HrLDDYEZ4rP7F7mGSFfyarNigK11ITk23/Y/on+x/3jrE656Rg5tZeGUuq127Qy6C+PskfDO5hyG5HZXV606erPr+ORofjK/XD3RmnUMPM4p1wCvH9ZWoo7LgosrTXOFl2ih9S+G2Xp1ic51q1F4sLkwg3SyWZ5cScP6sbrD8Qkt/dYFUe7wjsjdmWE4KNNsXuiX47jHZzVeY2sLBnlBy2+ECrnKmwTCRODGJPcI6pwmpnxp4y30zmj3U6y5yJ8qumJAtsMCAMxI6lwEhbsQdb535ROoUtdgiST8820lOf/uB9OkXoyxm+53S1FNRxfrNXEDSsK0RiVi66YexMBWhizwnZGLTFiFUgJopt1oCZoVMXoFRs6SrFcGokdWr/+9wLBO48Us6O3wtVqFSBceR6oP7kFaEY6Eda/gGTIiOAGatK/OnnmUtdqQ40HvjDX/+WAM4vlzGf5lluQIWVaWSfrz/q3sPXk18+HfC9hlG66tKBPbm2VRQVNjvxz9/qwwwawebDRMDXwMtCdoTCQFtrscDzbvL/orT+zaqxyarqtoGM4XVDww5E=
   on: development
-  app: safe-taiga-45870
+  app: agile-escarpment-17536
