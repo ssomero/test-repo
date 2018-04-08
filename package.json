@@ -1,0 +1,8 @@
+{
+	"name": "app",
+	"version": "1.0.0",
+	"scripts": {
+		"start-web": "npm start --prefix frontend/",
+		"start-api": "npm start --prefic backend/"
+}
+}
