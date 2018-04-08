@@ -25,7 +25,7 @@ module.exports = {
             host: '0.0.0.0',
             contentBase: path.join(__dirname, 'src'),
             historyApiFallback: true,
-            port: 8000,
+            port: process.env.PORT || 8000,
             watchOptions: {
                 aggregateTimeout: 50,
                 poll: 100,
