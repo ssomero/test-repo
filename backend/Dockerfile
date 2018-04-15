@@ -15,10 +15,3 @@ COPY package.json /usr/src/app
 RUN npm install
 
 COPY . /usr/src/app
-#RUN chmod a+x ./wait_for_db.sh
-
-#RUN addgroup -S docker_backend \
- #   && adduser -S docker_backend -G docker_backend
-
-#USER docker_backend 
-  
