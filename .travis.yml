@@ -7,6 +7,8 @@ services:
 branches:
   only:
   - development
+before_install:
+  - nvm install node  
 script:
 - docker-compose build --no-cache
 - cd frontend && npm install && npm run build
