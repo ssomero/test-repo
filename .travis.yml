@@ -12,6 +12,7 @@ before_install:
 script:
 - docker-compose build --no-cache
 - cd frontend && npm install && npm run build
+- echo pwd
 - cp dist/ ../backend
 before_deploy:
 - cd ../backend
