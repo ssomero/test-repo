@@ -1,6 +1,5 @@
 language: nodejs
 nodejs:
-  - "node"
   - "8"
 sudo: required
 services:
