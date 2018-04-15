@@ -7,7 +7,7 @@ branches:
   - development
 script:
 - docker-compose build --no-cache
-- cd frontend && npm run build
+- cd frontend && npm install && npm run build
 - cp dist/ ../backend
 before_deploy:
 - cd ../backend
