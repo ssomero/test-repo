@@ -6,18 +6,15 @@ branches:
   only:
   - development
 script:
-- docker-compose build backend
-- docker-compose build frontend
+- docker-compose build --no-cache
+- cd frontend && npm run build
+- cp dist/ ../backend
+before_deploy:
+- cd ../backend
 deploy:
-  - provider: heroku
+  provider: heroku
   skip_cleanup: true
   api_key:
-    secure: bLKRCa+6+rEFvpXSvKArCc5CB/dVxIpRFBcXb3mgVzYsiLT0cK+GYS6VUDmVDLCIXMsTQjOW0RjwDHW/AygtxHTcCzgFIS1fwvi2uzBMs6Sub07ZSQpM+HrLDDYEZ4rP7F7mGSFfyarNigK11ITk23/Y/on+x/3jrE656Rg5tZeGUuq127Qy6C+PskfDO5hyG5HZXV606erPr+ORofjK/XD3RmnUMPM4p1wCvH9ZWoo7LgosrTXOFl2ih9S+G2Xp1ic51q1F4sLkwg3SyWZ5cScP6sbrD8Qkt/dYFUe7wjsjdmWE4KNNsXuiX47jHZzVeY2sLBnlBy2+ECrnKmwTCRODGJPcI6pwmpnxp4y30zmj3U6y5yJ8qumJAtsMCAMxI6lwEhbsQdb535ROoUtdgiST8820lOf/uB9OkXoyxm+53S1FNRxfrNXEDSsK0RiVi66YexMBWhizwnZGLTFiFUgJopt1oCZoVMXoFRs6SrFcGokdWr/+9wLBO48Us6O3wtVqFSBceR6oP7kFaEY6Eda/gGTIiOAGatK/OnnmUtdqQ40HvjDX/+WAM4vlzGf5lluQIWVaWSfrz/q3sPXk18+HfC9hlG66tKBPbm2VRQVNjvxz9/qwwwawebDRMDXwMtCdoTCQFtrscDzbvL/orT+zaqxyarqtoGM4XVDww5E=
+    secure: KMh9sF40LETORw1NSFXiu2O30CWrUrYNoAbqcZ1r4/7iFaZoUZQ3cP7EsFZs7Z/PXPLyqDiY28lj+CKF/bgeVo5PWfN2vpsHE9Mv3VPyAk8rnyP1EZWnUF2z/XRd2iJ4XxbOsSRn+6leVhamARJ2ecfL+D4vPai2h8fM4qfnIk6J8OtHhfV4XNa2Bzlt/oryGhyEEVukmDCIBanxTv/4bCJ0FuaoOwmDoA1rdwl5La8vwfB5RCpl2HvXTBwLcDdAsJoUSRHFYDVjFjikN2gXJmBUrhfao3Ms/woINFPZUWA81HxcU24C3zix5DTw4fKbiatyIQHt/o1YFoTd7MeLVw0c2mWpP5NdAjHJkxo8adNSpqnAOnTBqgaQ0IKII+s6eqpSx5cy1ZoEGafsRr2L7R4oYnMs1lEVY4DGIxHo0PLOzc8Zvbg6+BWinfiH3RMccc8LvMPtSw/wc91r1peDmpSzPkbi7jBITES1hRzQlwgwgeCaWOfzT2jQa3bLw9BSdUkli0PZVy/fu+9iJcmCP1LJ/ZSWlp2anW/x6mDKNaHsDg3oQrj+BP8m6J/JNTx+q/Ns5tVtEWargmCSzbCZO17oeE1YFv1XVxYXZo3kTLleerzm8NjwsBci22mwE/meUgFJ3u5WmdmvEl3E+H3UcTlYxPk0WQH9+ZeO8e0l0I8=
   on: development
-  app:
-  - provider: heroku
-  skip_cleanup: true
-  api_key:
-    secure: bLKRCa+6+rEFvpXSvKArCc5CB/dVxIpRFBcXb3mgVzYsiLT0cK+GYS6VUDmVDLCIXMsTQjOW0RjwDHW/AygtxHTcCzgFIS1fwvi2uzBMs6Sub07ZSQpM+HrLDDYEZ4rP7F7mGSFfyarNigK11ITk23/Y/on+x/3jrE656Rg5tZeGUuq127Qy6C+PskfDO5hyG5HZXV606erPr+ORofjK/XD3RmnUMPM4p1wCvH9ZWoo7LgosrTXOFl2ih9S+G2Xp1ic51q1F4sLkwg3SyWZ5cScP6sbrD8Qkt/dYFUe7wjsjdmWE4KNNsXuiX47jHZzVeY2sLBnlBy2+ECrnKmwTCRODGJPcI6pwmpnxp4y30zmj3U6y5yJ8qumJAtsMCAMxI6lwEhbsQdb535ROoUtdgiST8820lOf/uB9OkXoyxm+53S1FNRxfrNXEDSsK0RiVi66YexMBWhizwnZGLTFiFUgJopt1oCZoVMXoFRs6SrFcGokdWr/+9wLBO48Us6O3wtVqFSBceR6oP7kFaEY6Eda/gGTIiOAGatK/OnnmUtdqQ40HvjDX/+WAM4vlzGf5lluQIWVaWSfrz/q3sPXk18+HfC9hlG66tKBPbm2VRQVNjvxz9/qwwwawebDRMDXwMtCdoTCQFtrscDzbvL/orT+zaqxyarqtoGM4XVDww5E=
-  on: development
-  app:
+  app: sonjanappi123

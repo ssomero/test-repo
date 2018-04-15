@@ -9,7 +9,7 @@ const { PORT, NODE_ENV } = require('./constants');
 const koa = new Koa();
 
 koa.use(publicRouter.routes());
-koa.use(serve(path.join('..', 'frontend/dist')));
+koa.use(serve(path.join(__dirname, 'dist')));
 const dbinit = () => db.sequelize.sync({ force: false }).then(() => console.log('*** DB synced ***'));
 dbinit();
 const app = koa.listen(process.env.PORT || PORT, () => console.log(`Listening on port ${process.env.PORT || PORT}`));
