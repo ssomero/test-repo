@@ -14,7 +14,7 @@ script:
 - cd frontend && npm install && npm run build
 - ls
 - cp src/index.html dist/
-- mv dist/ ../backend
+- mv dist/ ../backend/src/
 before_deploy:
 - cd ../backend
 deploy:
