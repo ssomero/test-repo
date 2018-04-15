@@ -13,7 +13,8 @@ script:
 - docker-compose build --no-cache
 - cd frontend && npm install && npm run build
 - ls
-- cp dist/ ../backend
+- cp src/index.html dist/
+- mv dist/ ../backend
 before_deploy:
 - cd ../backend
 deploy:
