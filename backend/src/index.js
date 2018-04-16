@@ -4,7 +4,7 @@ const serve = require('koa-static');
 const path = require('path');
 const publicRouter = require('./publicRouter');
 const db = require('./db');
-const { PORT, NODE_ENV } = require('./constants');
+const { PORT } = require('./constants');
 
 const koa = new Koa();
 
