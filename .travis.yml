@@ -16,10 +16,10 @@ script:
 - mv dist/ ../backend/src/
 before_deploy:
 - cd ../backend
-deploy:
-  provider: heroku
-  skip_cleanup: true
-  api_key:
-    secure: KMh9sF40LETORw1NSFXiu2O30CWrUrYNoAbqcZ1r4/7iFaZoUZQ3cP7EsFZs7Z/PXPLyqDiY28lj+CKF/bgeVo5PWfN2vpsHE9Mv3VPyAk8rnyP1EZWnUF2z/XRd2iJ4XxbOsSRn+6leVhamARJ2ecfL+D4vPai2h8fM4qfnIk6J8OtHhfV4XNa2Bzlt/oryGhyEEVukmDCIBanxTv/4bCJ0FuaoOwmDoA1rdwl5La8vwfB5RCpl2HvXTBwLcDdAsJoUSRHFYDVjFjikN2gXJmBUrhfao3Ms/woINFPZUWA81HxcU24C3zix5DTw4fKbiatyIQHt/o1YFoTd7MeLVw0c2mWpP5NdAjHJkxo8adNSpqnAOnTBqgaQ0IKII+s6eqpSx5cy1ZoEGafsRr2L7R4oYnMs1lEVY4DGIxHo0PLOzc8Zvbg6+BWinfiH3RMccc8LvMPtSw/wc91r1peDmpSzPkbi7jBITES1hRzQlwgwgeCaWOfzT2jQa3bLw9BSdUkli0PZVy/fu+9iJcmCP1LJ/ZSWlp2anW/x6mDKNaHsDg3oQrj+BP8m6J/JNTx+q/Ns5tVtEWargmCSzbCZO17oeE1YFv1XVxYXZo3kTLleerzm8NjwsBci22mwE/meUgFJ3u5WmdmvEl3E+H3UcTlYxPk0WQH9+ZeO8e0l0I8=
-  on: development
-  app: sonjanappi123
+#deploy:
+#  provider: heroku
+#  skip_cleanup: true
+#  api_key:
+#    secure: KMh9sF40LETORw1NSFXiu2O30CWrUrYNoAbqcZ1r4/7iFaZoUZQ3cP7EsFZs7Z/PXPLyqDiY28lj+CKF/bgeVo5PWfN2vpsHE9Mv3VPyAk8rnyP1EZWnUF2z/XRd2iJ4XxbOsSRn+6leVhamARJ2ecfL+D4vPai2h8fM4qfnIk6J8OtHhfV4XNa2Bzlt/oryGhyEEVukmDCIBanxTv/4bCJ0FuaoOwmDoA1rdwl5La8vwfB5RCpl2HvXTBwLcDdAsJoUSRHFYDVjFjikN2gXJmBUrhfao3Ms/woINFPZUWA81HxcU24C3zix5DTw4fKbiatyIQHt/o1YFoTd7MeLVw0c2mWpP5NdAjHJkxo8adNSpqnAOnTBqgaQ0IKII+s6eqpSx5cy1ZoEGafsRr2L7R4oYnMs1lEVY4DGIxHo0PLOzc8Zvbg6+BWinfiH3RMccc8LvMPtSw/wc91r1peDmpSzPkbi7jBITES1hRzQlwgwgeCaWOfzT2jQa3bLw9BSdUkli0PZVy/fu+9iJcmCP1LJ/ZSWlp2anW/x6mDKNaHsDg3oQrj+BP8m6J/JNTx+q/Ns5tVtEWargmCSzbCZO17oeE1YFv1XVxYXZo3kTLleerzm8NjwsBci22mwE/meUgFJ3u5WmdmvEl3E+H3UcTlYxPk0WQH9+ZeO8e0l0I8=
+#  on: development
+#  app: sonjanappi123
