@@ -1,6 +1,6 @@
 language: nodejs
 nodejs:
-  - "8"
+- '8'
 sudo: required
 services:
 - docker
@@ -8,7 +8,7 @@ branches:
   only:
   - development
 before_install:
-  - nvm install node  
+- nvm install node
 script:
 - docker-compose build --no-cache
 - cd frontend && npm install && npm run build
@@ -16,10 +16,10 @@ script:
 - mv dist/ ../backend/src/
 before_deploy:
 - cd ../backend
-#deploy:
-#  provider: heroku
-#  skip_cleanup: true
-#  api_key:
-#    secure: KMh9sF40LETORw1NSFXiu2O30CWrUrYNoAbqcZ1r4/7iFaZoUZQ3cP7EsFZs7Z/PXPLyqDiY28lj+CKF/bgeVo5PWfN2vpsHE9Mv3VPyAk8rnyP1EZWnUF2z/XRd2iJ4XxbOsSRn+6leVhamARJ2ecfL+D4vPai2h8fM4qfnIk6J8OtHhfV4XNa2Bzlt/oryGhyEEVukmDCIBanxTv/4bCJ0FuaoOwmDoA1rdwl5La8vwfB5RCpl2HvXTBwLcDdAsJoUSRHFYDVjFjikN2gXJmBUrhfao3Ms/woINFPZUWA81HxcU24C3zix5DTw4fKbiatyIQHt/o1YFoTd7MeLVw0c2mWpP5NdAjHJkxo8adNSpqnAOnTBqgaQ0IKII+s6eqpSx5cy1ZoEGafsRr2L7R4oYnMs1lEVY4DGIxHo0PLOzc8Zvbg6+BWinfiH3RMccc8LvMPtSw/wc91r1peDmpSzPkbi7jBITES1hRzQlwgwgeCaWOfzT2jQa3bLw9BSdUkli0PZVy/fu+9iJcmCP1LJ/ZSWlp2anW/x6mDKNaHsDg3oQrj+BP8m6J/JNTx+q/Ns5tVtEWargmCSzbCZO17oeE1YFv1XVxYXZo3kTLleerzm8NjwsBci22mwE/meUgFJ3u5WmdmvEl3E+H3UcTlYxPk0WQH9+ZeO8e0l0I8=
-#  on: development
-#  app: sonjanappi123
+deploy:
+  provider: heroku
+  skip_cleanup: true
+  api_key:
+    secure: CJkLGjCjv8lbqFo8bb73xF8ekUXRAtJMw008LwR+XsePoa8kXGAbgA7f6RwisU5iTviHp+ch3Q4MDNM1iwF5k1DxyLdWrjyNdUYUaVWp57ruRMoStf0HGrutpRd2yg4LwdcKwyff9RcWNiGY8+Du8Bc/yGP+8TgIzUJH3PJeCfOhIyPyRxGUEwrzbCd3tNBYon1wKH4NKR1R3h9UosUwzerd7DUMd1Z3VB/YphfTgGbCMCrg97akowAf3MsBX85xK9dryZdOgicu/VZZeQZHxxMoECwf5985SvbUXIinWu7QsZ3Fj2UY0gE2RpaiMChOLNQWITMr6/GURQ2WQP4PtG6IDXvZI3xbZaKz+rp35lViHCqmsBInfMJN9EukM3un/DtyZQieCRAu5jeQlkyxNrVTbl1rJbLoLevj5tyo+kUVkMG7wOPgO0cQE2tYTi+c68rAjuN6Js5L2k1R5mv2m3m7MmwWYql/3wiGV6X3cnzUZYFmUAf9lvEo9q6uBEqgNhy92nlq46WbSmIy6d42LFz88YfNlnDR4s+Ep70dI+qt4EhhoJ1K5/cCLPjetDlBT4pmclIxKBVzxT42xFI6lyG2hIwbMqZmIb64zQ1IX/1enL7B+075PGxtqLeJFKcSXfv1VPA/QO88pZwzdg448xyXvlLUUGfV4lHIpAe2CEU=
+  on: development
+  app: murmuring-anchorage-85311
